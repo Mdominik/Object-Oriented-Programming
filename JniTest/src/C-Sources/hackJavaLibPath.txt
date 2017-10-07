@@ -1,0 +1,44 @@
+#/bin/bash
+export SENSOR_CP=/home/martin/Vorl/OOPR/Coding/JniTest/build/classes
+export JAVA_HOME=/opt/Java/jdk1.8.0_20/
+
+# $JAVA_HOME/bin/javah -classpath $SENSOR_CP jnitest.SensorProxy
+
+gcc -I $JAVA_HOME/include \
+    -I $JAVA_HOME/include/linux \
+    -shared -fPIC \
+    -Wl,-soname,sensors.so \
+    -o libsensors.so sensors.c
+
+cp -p libsensors.so /opt/Java/JniLib
+
+#gcc -I /opt/Java/jdk1.7.0_21/include \
+#    -I /opt/Java/jdk1.7.0_21/include/linux \
+#    -shared -fPIC  \
+#    -o libSensors.so sensors.c
+
+# After compilation, you can check the function naming with nm:
+# $ nm libhello.so
+
+
+# run in .../build/classes:
+# $JAVA_HOME/bin/java -Djava.library.path=C-Sources jnitest.JniTest
+#
+
+# When messing around with JNI, one have to set the “java.library.path” 
+# accordingly. Unfortunately the only way is to add a system property 
+# *before* the application is started: java -Djava.library.path=/path/to/libs
+# 
+# Changing the system property later doesn’t have any effect, since the 
+# property is evaluated very early and cached.  But the guys over at jdic 
+# discovered a way how to work around it. It is a little bit dirty – but 
+# hey, those hacks are the reason we all love Java . . . 
+# System.setProperty( "java.library.path", "/path/to/libs" );
+# Field fieldSysPath = ClassLoader.class.getDeclaredField( "sys_paths" );
+# fieldSysPath.setAccessible( true );
+# fieldSysPath.set( null, null );
+#
+
+
+
+
