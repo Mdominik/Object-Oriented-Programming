@@ -33,7 +33,7 @@ public class NumericTest {
         result = (long) big_1 * big_2;
         System.out.print("long: " + big_1 + " * " + big_2);
         System.out.println(" = " + result);
-        return;
+        
     }
 
     public static void floatTest() {
@@ -48,7 +48,7 @@ public class NumericTest {
         result = (double) big_1 * big_2;
         System.out.print("double: " + big_1 + " * " + big_2);
         System.out.println(" =  " + result);
-        return;
+        
     }
 
     public static void intFloatTest() {
@@ -66,6 +66,25 @@ public class NumericTest {
         System.out.println("   =   " + resultLong);
 
         System.out.println("difference: " + (result - resultLong));
-        return;
+        
     }
 }
+
+/*
+
+integerTest() 
+int:   12345 * 54321  =   670592745
+long:  12345 * 54321  =   670592745
+int:  123456 * 654321 =  -824525248 - buffer overflow
+long: 123456 * 654321 = 80779853376
+
+floatTest() 
+float:  1.23456E20 * 6.54321E20 =  Infinity - passed the range
+double: 1.23456E20 * 6.54321E20 =  8.07798548908939E40
+
+intFloatTest() 
+float: 123456.0 * 654321.0 =  8.0779853824E10
+long:    123456 * 654321   =   80779853376
+difference: 448.0
+
+*/

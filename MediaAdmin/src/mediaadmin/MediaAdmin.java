@@ -15,7 +15,7 @@ public class MediaAdmin {
         MediaAdmin mediaAdmin = getInstance();
         mediaAdmin.testMedium();
         mediaAdmin.testCopy();
-        return;
+      
     }
     
     void testMedium() {
@@ -34,8 +34,6 @@ public class MediaAdmin {
         System.out.println(" medium_4, medium_3: " + comp);
         comp = aMedium_1.equals(aMedium_4);
         System.out.println(" medium_1, medium_4: " + comp);
-
-        return;
     }
     
     void testCopy() {
@@ -56,8 +54,6 @@ public class MediaAdmin {
         System.out.println();
         aCopy_1.print();
         System.out.println();
-
-        return;
     }
     
     static MediaAdmin getInstance() {
