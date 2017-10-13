@@ -26,7 +26,7 @@ public class MultiplicationTab {
 
         for (byte i = 1; i <= rows; i++) {
             for (byte j = 1; j <= columns; j++) {
-                // store the value i*j at the proper position
+                aTabHolder.setTabValue(j*i, i-1, j-1);
             }
         }
         aTabHolder.printTab();
@@ -36,7 +36,7 @@ public class MultiplicationTab {
         System.out.println();
         System.out.print("first row: ");
         for (byte i = 0; i < columns; i++) {
-            int value =     ;// get value from the first row of the table 
+            int value = aTabHolder.getTabValue(2, i);
             System.out.printf(" %3d", value);
         }
         System.out.println(); 

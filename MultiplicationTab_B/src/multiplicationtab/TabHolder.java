@@ -13,22 +13,22 @@ public class TabHolder {
     }
 
     TabHolder(int row, int column) {
-        table = // create new two dimensional arry
+        table = new int[row][column];
     }
 
-    int getTabValue(int row, int column) {
-        return // return value from position row, column 
+    public int getTabValue(int row, int column) {
+        return table[row][column];
     }
 
-    void setTabValue(int value, int row, int column) {
-        // store value at position row, column  
+    public void setTabValue(int value, int row, int column) {
+        table[row][column] = value;
     }
 
     void printTab() {
         for (byte i = 0; i < table.length; i++) {
             System.out.print('>');
             for (byte j = 0; j < table[i].length; j++) {
-                System.out.printf(" %4d", // print value from table
+                System.out.printf(" %4d", getTabValue(i,j));
             }
             System.out.println();
         }
