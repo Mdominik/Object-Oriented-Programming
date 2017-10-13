@@ -36,7 +36,7 @@ public class MultiplicationTab {
         System.out.println();
         System.out.print("first row: ");
         for (byte i = 0; i < columns; i++) {
-            int value = aTabHolder.getTabValue(2, i);
+            int value = aTabHolder.getTabValue(0,i);
             System.out.printf(" %3d", value);
         }
         System.out.println(); 
