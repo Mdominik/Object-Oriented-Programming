@@ -16,13 +16,17 @@ public class MediaCopy {
     }
 
     void print() {
-        // print out the signature and the location
-        System.out.print(" Copy signature: " + this.signature);
-        System.out.print(", location: " + this.location);
         // if this object contains reference to a medium-object (not null)
         // then call the print-method of the medium-object
-        if(this != null) {
-            this.print();
+        if (this != null) {
+            // print out the signature and the location
+            System.out.print(" Copy signature: " + this.signature);
+            System.out.print(", location: " + this.location);
+            if(this.theMedium != null)
+                this.theMedium.print();
+        }
+        else {
+            System.out.println("No object");
         }
     }
 
@@ -30,11 +34,11 @@ public class MediaCopy {
         // This method returns true if the members
         // of this object contain the same values
         // as the members of the other object. 
-        // Otherwise it returns false. 
-
+        // Otherwise it returns false.
         // Hint: the clearest way is to test for inequality: 
         if (otherCopy.signature !=  this.signature || 
-                otherCopy.location != this.location ) {
+                otherCopy.location != this.location ||
+                otherCopy.theMedium != this.theMedium) {
             return false;
         }
         return true;
