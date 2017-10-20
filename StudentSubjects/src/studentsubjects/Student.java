@@ -10,18 +10,18 @@ public class Student {
     }
 
     public void pushSubject(Subject subj, int year, boolean examPlanned) {
-        Registration newRegistration = // create new Registration object 
-        newRegistration . . . // add new Registration object
-        regSubjects . . .     // to the beginning of the list 
+        Registration newRegistration = new Registration(subj, year, examPlanned);
+        newRegistration.next = regSubjects;
+        regSubjects = newRegistration;
     }
 
     public Subject popSubject() {
         Subject aSubj = null;
-        if (regSubjects . . . ) {  // check if there is s.th. to remove
-            aSubj =   // get subject of the first registration
-            regSubjects  . . .  // remove first registration from the list
+        if (regSubjects != null) {  // check if there is s.th. to remove
+            aSubj = regSubjects.next.theSubject;  // get subject of the first registration
+            regSubjects.next = null; // remove first registration from the list
         }
-        return . . . // return a reference to the subject or null) 
+        return aSubj; // return a reference to the subject or null) 
     }
 
     // remove the registration at position index from the list
@@ -114,9 +114,9 @@ public class Student {
 
     void printSubjects() {
         Registration currentReg = regSubjects;
-        while (currentReg . . . ) {  // as log as there are more objects
+        while (currentReg != null ) {  // as log as there are more objects
             currentReg.print();
-            currentReg  . . . // go to the next objct 
+            currentReg = currentReg.next; // go to the next objct 
         }
     }
 
