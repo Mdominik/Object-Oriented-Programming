@@ -85,7 +85,7 @@ public class MediaAdministration {
         Book aBook = new Book();
         readMediumData(aBook);
         System.out.print("  author: ");
-        aBook.author = consoleInput.next();
+        aBook.setAuthor(consoleInput.next());
         System.out.print("  number of pages: ");
         aBook.numberOfPages = consoleInput.nextInt();
         mediaMap.put(aBook.id, aBook);
