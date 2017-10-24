@@ -32,7 +32,7 @@ public class Student {
             return null;
         }
         if (index == 0) {
-            // use method popSubject() to remove the first registration 
+            aSubj = popSubject();
             return aSubj;
         }
         aSubj = removeFromRegistrationList(currentReg, index);
@@ -54,20 +54,20 @@ public class Student {
         Subject aSubj = null;
         int i = 0;
         Registration prevReg = regList;
-        while ((i < . . . )) {  // how far do we proceed prevReg
+        while ((i < index )) {  // how far do we proceed prevReg
             prevReg = prevReg.next;
-            if(prevReg  . . . ){  // check if we can proceede in the list
+            if(prevReg == null ){  // check if we can proceede in the list
                 return null; // no object with given index available 
             }
             i++;
         }
         // Now prevReg points to the element before the element to remove.
         // Check if there is an element to remove
-        if(  . . . . . ){
+        if(prevReg.next == null){
                 return null; // if not: return 
         }
-        aSubj = . . . ; // get the subject of the object to be removed
-        prevReg.next = . . . . ;  // replace the refernce to remove the object
+        aSubj = prevReg.theSubject ; // get the subject of the object to be removed
+        prevReg.next = prevReg;  // replace the refernce to remove the object
         return aSubj;
     }
 
