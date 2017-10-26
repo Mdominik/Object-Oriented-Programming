@@ -10,7 +10,7 @@ public class Registration {
     Subject theSubject;
     int year;
     boolean examPlanned;
-    Registration next; //like recursive pointer
+    Registration next;
 
     Registration(Subject subj, int regYear, boolean examPlanned_) {
         theSubject = subj; 
