@@ -5,6 +5,10 @@ public class Book extends Medium {
     private String author;
     private int pages_number;
     
+    Book() {
+        super();
+    }
+    
     Book(String aut, int pag_no) {
         super();
         author = aut;
@@ -13,8 +17,9 @@ public class Book extends Medium {
     
     @Override
     void print() {
-        System.out.println("pages_number" + pages_number);
-        System.out.println(", author" + author);
+        System.out.print("Book by " + author);
+        super.print(); // superclass method stays here
+        System.out.println(", " + pages_number + " pages.");
     }
 
     /**

@@ -8,16 +8,14 @@ public class MediaAdministration {
     Scanner consoleInput;
     // define a member mediaMap, a HashMap with
     // key type Integer and value type Medium 
-    . . . . .  mediaMap;
+    HashMap<Integer, Medium> mediaMap = new HashMap<Integer, Medium>();
     // define a member copyMap, a HashMap with
     // key type Integer and value type MediaCopy 
-    . . . . . . copyMap;
+    HashMap<Integer, MediaCopy> copyMap = new HashMap<Integer, MediaCopy>();
     static MediaAdministration singleInstance;
 
     private MediaAdministration() {
         consoleInput = new Scanner(System.in);
-        mediaMap = . . . . . ;
-        copyMap = . . . . . . ;
     }
 
     public static void main(String[] args) {
@@ -87,7 +85,7 @@ public class MediaAdministration {
         System.out.print("  author: ");
         aBook.setAuthor(consoleInput.next());
         System.out.print("  number of pages: ");
-        aBook.numberOfPages = consoleInput.nextInt();
+        aBook.setPages_number(consoleInput.nextInt());
         mediaMap.put(aBook.id, aBook);
         // System.out.println();
         return;
@@ -113,7 +111,7 @@ public class MediaAdministration {
     void printAllMedia() {
         // get a collection from mediaMap
         // and iterate over this collectin using the new for . . . 
-        for (Medium m . . . . . . . ) {
+        for (Medium m : mediaMap.values() ) {
             m.print();
         }
     }
@@ -187,7 +185,7 @@ public class MediaAdministration {
     void printAllCopies() {
         // get a collection from copyMap
         // and iterate over this collectin using the new for . . . 
-        for (MediaCopy mc . . . . . ) {
+        for (MediaCopy mc : copyMap.values() ) {
             mc.print();
         }
     }
