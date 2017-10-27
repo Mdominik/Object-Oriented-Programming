@@ -19,7 +19,7 @@ public class StudentSubjects {
         }
         aStudent.print();
         
-        Subject aSubj = aStudent.removeSubjectAt(subCount);
+        Subject aSubj; // = aStudent.removeSubjectAt(subCount);
         aSubj = aStudent.removeSubjectAt(subCount - 1);
         aSubj = aStudent.removeSubjectAt(1);
         aSubj = aStudent.removeSubjectAt(0);

@@ -10,18 +10,18 @@ public class Student {
     }
 
     public void pushSubject(Subject subj, int year, boolean examPlanned) {
-        Registration newRegistration = new Registration(subj,year,examPlanned);
-        newRegistration.next = regSubjects;
-        regSubjects = newRegistration;     // to the beginning of the list 
+        Registration newRegistration = // create new Registration object 
+        newRegistration . . . // add new Registration object
+        regSubjects . . .     // to the beginning of the list 
     }
 
     public Subject popSubject() {
         Subject aSubj = null;
-        if (regSubjects != null) {  // check if there is s.th. to remove
-            aSubj = regSubjects.theSubject;// get subject of the first registration
-            regSubjects = null;  // remove first registration from the list
+        if (regSubjects . . . ) {  // check if there is s.th. to remove
+            aSubj =   // get subject of the first registration
+            regSubjects  . . .  // remove first registration from the list
         }
-        return aSubj;// return a reference to the subject or null) 
+        return . . . // return a reference to the subject or null) 
     }
 
     // remove the registration at position index from the list
@@ -32,7 +32,7 @@ public class Student {
             return null;
         }
         if (index == 0) {
-            popSubject(); // use method popSubject() to remove the first registration 
+            // use method popSubject() to remove the first registration 
             return aSubj;
         }
         aSubj = removeFromRegistrationList(currentReg, index);
@@ -54,20 +54,20 @@ public class Student {
         Subject aSubj = null;
         int i = 0;
         Registration prevReg = regList;
-        while ((i < index )) {  // how far do we proceed prevReg
+        while ((i < . . . )) {  // how far do we proceed prevReg
             prevReg = prevReg.next;
-            if(prevReg == null){  // check if we can proceede in the list
+            if(prevReg  . . . ){  // check if we can proceede in the list
                 return null; // no object with given index available 
             }
             i++;
         }
         // Now prevReg points to the element before the element to remove.
         // Check if there is an element to remove
-        if(prevReg == null){
+        if(  . . . . . ){
                 return null; // if not: return 
         }
-        aSubj = prevReg.theSubject; // get the subject of the object to be removed
-        prevReg = null ;  // replace the refernce to remove the object
+        aSubj = . . . ; // get the subject of the object to be removed
+        prevReg.next = . . . . ;  // replace the refernce to remove the object
         return aSubj;
     }
 
@@ -85,22 +85,22 @@ public class Student {
             if (currentReg == null) { // object is not in list
                 return null;
             }
-            prevReg    = currentReg;      // move prevReg and currentReg until
-            currentReg = prevReg.next;    //currentReg refers to the object to remove
+            prevReg    = . . .      // move prevReg and currentReg until
+            currentReg = . . . .    //currentReg refers to the object to remove
             i++;
         }
-        aSubj = currentReg.theSubject; // get the subject of the registration to be deleted
-        prevReg = currentReg; // replace the reference to remove the object from the list
+        aSubj = . . . // get the subject of the registration to be deleted
+        prevReg . . . // replace the reference to remove the object from the list
         return aSubj;
     }
 
     void appendSubject(Subject subj, int year, boolean examPlanned) {
         Registration newRegistration = new Registration(subj, year, examPlanned);
         Registration currentReg = regSubjects;
-        while (currentReg != null){         // go to the last entry in the list
-            currentReg = currentReg.next;
+        while ( . . .  ){         // go to the last entry in the list
+            . . . 
         }
-        currentReg = newRegistration; // add a link to the new registration object
+        . . .                     // add a link to the new registration object
         return;
     }
     
@@ -114,9 +114,9 @@ public class Student {
 
     void printSubjects() {
         Registration currentReg = regSubjects;
-        while (currentReg != null) {  // as log as there are more objects
+        while (currentReg . . . ) {  // as log as there are more objects
             currentReg.print();
-            currentReg = currentReg.next; // go to the next objct 
+            currentReg  . . . // go to the next objct 
         }
     }
 
