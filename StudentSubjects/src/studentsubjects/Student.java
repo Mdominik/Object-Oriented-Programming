@@ -94,6 +94,8 @@ public class Student {
         return aSubj;
     }
 
+    
+    //nope
     void appendSubject(Subject subj, int year, boolean examPlanned) {
         Registration newRegistration = new Registration(subj, year, examPlanned);
         Registration currentReg = regSubjects;
